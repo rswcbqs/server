@@ -36,7 +36,9 @@ export class TestGOodsController {
   })
   async list() {
     const startTime = Date.now();
-    const res = await this.testGoodsService.findAndCount();
+    const res = await this.testGoodsService.findAndCount({
+      select: ['id'],
+    });
     const endTime = Date.now();
     const duration = endTime - startTime; // 计算耗时
     console.log(`Execution time: ${duration} ms`); // 输出耗时

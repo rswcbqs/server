@@ -1,5 +1,13 @@
 import moment = require('moment');
 
+export const transformerId = {
+  to: (value: number) => value,
+  from: (value: string) => {
+    if (value === null) return value;
+    return +value;
+  },
+};
+
 export const transformerMoney = {
   to: (value: number) => value,
   from: (value: string) => {

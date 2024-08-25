@@ -6,6 +6,7 @@ import { LoginDTO, RegisterDTO } from '../../api/dto/user/account';
 import { aesEncrypt } from '../../util/encrypt';
 import { JwtService } from '@midwayjs/jwt';
 import { Assert } from '../../common/assert';
+import { LoggingTime } from '../../decorator/msg';
 
 @Controller('/user')
 export class UserAccountController {
@@ -24,6 +25,7 @@ export class UserAccountController {
   @Post('/login', {
     summary: '登陆',
   })
+  @LoggingTime('abc')
   async login(@Body() loginDTO: LoginDTO) {
     // const passed: boolean = await this.captchaService.check(
     //   loginDTO.id,
